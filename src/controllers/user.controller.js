@@ -19,9 +19,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-// ==> Método responsável por retornar um determinado 'User'
 exports.returnUserProfile = async (req, res) => {
-  console.log(req.userData);
   await res.json(req.userData);
 };
 
@@ -37,11 +35,11 @@ exports.registerNewUser = async (req, res) => {
     }
 
     const newUser = new User(req.body);
-    const user = await newUser.save();
-    const token = await newUser.generateAuthToken(); // ==> Aqui chamaremos o método que criamos no model
-    return res
-      .status(201)
-      .json({ message: "Usuário(a) criado(a) com sucesso!", user, token });
+    await newUser.save();
+    //const user = await newUser.save();
+    //const token = await newUser.generateAuthToken();
+    //return res.status(201).json({ message: "Usuário(a) criado(a) com sucesso!", user, token });
+    return res.status(201).json({ message: "Usuário(a) criado(a) com sucesso!"});
   } catch (err) {
     console.log('erro');
     return res.status(400).json({ err });
