@@ -25,7 +25,7 @@ exports.registerNewUser = async (req, res) => {
     // => Antes vamos fazer uma verificação se o usuário já possui algum e-mail já cadastrado:
     const isUser = await User.find({ email: req.body.email });
     if (isUser.length >= 1) {
-      return res        .status(409)        .json({ message: "Atenção! Este e-mail já possui registro!" });
+      return res.status(409).json({ message: "Atenção! Este e-mail já possui registro!" });
     }
 
     const newUser = new User(req.body);

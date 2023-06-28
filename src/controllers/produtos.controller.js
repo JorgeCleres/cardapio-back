@@ -1,4 +1,6 @@
 const Produtos = require('../models/produtos.model')
+const Pedido = require('../models/pedidos.model')
+const Nodemailer = require('../services/nodemailer')
 
 exports.allProducts = async(req, res) => {
     try{
@@ -10,11 +12,17 @@ exports.allProducts = async(req, res) => {
 }
 
 exports.pedidoProducts = async(req, res) => {
-    console.log(req.body);
     try{
-        // const produtos = await Produtos.find({})
-        res.status(200).json({ message: 'sucCess'})
+        // const pedido = new Pedido(req.body)
+        // await pedido.save();
+        await Nodemailer.SendEmail(req.body)
+            .then(() => {
+                res.status(200).json({ message: 'success'})
+            })
+            .catch(() => {
+                res.status(400).json({message: 'erro'})
+            })
     } catch {
-        res.status(400).json({message: 'erro', err})
+        res.status(400).json({message: 'erro'})
     }
 }
