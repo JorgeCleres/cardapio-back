@@ -1,6 +1,6 @@
 const Produtos = require('../models/produtos.model')
 const Pedido = require('../models/pedidos.model')
-const nodemailer = require('../../../nodemailer')
+const nodemailer = require('../services/nodemailer')
 
 exports.allProducts = async(req, res) => {
     try{
