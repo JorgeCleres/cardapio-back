@@ -4,7 +4,7 @@ dotenv.config();
 
 module.exports = {
   local: {
-    localUrlDatabse: process.env.DB_URI,
+    localUrlDatabse: process.env.DATABASE_URL,
     secret: 'password',
   },
 };
