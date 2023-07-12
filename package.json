@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "backend do cardapio",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node ."
   },
   "author": "jorge will",
   "license": "ISC",
