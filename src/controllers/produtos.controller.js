@@ -1,6 +1,6 @@
 const Produtos = require('../models/produtos.model')
 const Pedido = require('../models/pedidos.model')
-const Nodemailer = require('../services/nodemailer')
+const nodemailer = require('../services/nodemailer')
 
 exports.allProducts = async(req, res) => {
     try{
@@ -15,7 +15,7 @@ exports.pedidoProducts = async(req, res) => {
     try{
         // const pedido = new Pedido(req.body)
         // await pedido.save();
-        await Nodemailer.SendEmail(req.body)
+        await nodemailer.SendEmail(req.body)
             .then(() => {
                 res.status(200).json({ message: 'success'})
             })

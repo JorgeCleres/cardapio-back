@@ -1,8 +1,8 @@
-const Nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 exports.SendEmail = async(dadosPedido) =>  {
     try {
-        let remetente = Nodemailer.createTransport({
+        let remetente = nodemailer.createTransport({
             host: 'smtp.titan.email',
             port: 465, // or 587
             service: 'smtp.titan.email',
@@ -61,7 +61,7 @@ exports.SendEmail = async(dadosPedido) =>  {
 
 exports.SendPdf = async() => {
     try {
-        let remetente = Nodemailer.createTransport({
+        let remetente = nodemailer.createTransport({
             host: 'smtp.titan.email',
             port: 465, // or 587
             //service: 'smtp.titan.email',
